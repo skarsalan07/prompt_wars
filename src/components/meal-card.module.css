@@ -1,0 +1,123 @@
+.card {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 250, 244, 0.94);
+  border: 1px solid rgba(84, 58, 43, 0.09);
+  box-shadow: var(--shadow);
+  padding: 1.15rem;
+  min-width: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent-strong);
+}
+
+.title {
+  margin-top: 0.25rem;
+  font-size: 1.45rem;
+}
+
+.metrics {
+  display: grid;
+  gap: 0.35rem;
+  justify-items: end;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.summary {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.nutritionGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.nutritionGrid div {
+  border-radius: 14px;
+  background: rgba(219, 229, 211, 0.36);
+  padding: 0.75rem;
+}
+
+.nutritionGrid dt {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.nutritionGrid dd {
+  margin-top: 0.2rem;
+  font-weight: 700;
+}
+
+.section {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.section h4 {
+  font-size: 1.08rem;
+}
+
+.list,
+.steps {
+  display: grid;
+  gap: 0.55rem;
+  padding-left: 1.1rem;
+  line-height: 1.55;
+}
+
+.list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.9rem;
+}
+
+.ingredientMeta {
+  white-space: nowrap;
+  color: var(--muted);
+}
+
+@media (max-width: 720px) {
+  .nutritionGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .header {
+    flex-direction: column;
+  }
+
+  .metrics {
+    justify-items: start;
+  }
+
+  .list li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ingredientMeta {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 520px) {
+  .nutritionGrid {
+    grid-template-columns: 1fr;
+  }
+}

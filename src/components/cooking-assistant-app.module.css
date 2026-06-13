@@ -1,0 +1,239 @@
+.page {
+  position: relative;
+  min-height: 100vh;
+  padding: 2rem clamp(1rem, 2vw, 2rem) 3rem;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.68), transparent 22%),
+    radial-gradient(circle at 82% 18%, rgba(233, 240, 221, 0.9), transparent 25%),
+    radial-gradient(circle at 70% 85%, rgba(255, 207, 181, 0.55), transparent 20%);
+}
+
+.hero,
+.layout {
+  position: relative;
+  z-index: 1;
+  width: min(100%, var(--max-width));
+  margin: 0 auto;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: 1.5rem;
+  align-items: stretch;
+  padding: 0.5rem 0 1.75rem;
+}
+
+.heroCopy,
+.heroPanel {
+  border: 1px solid rgba(84, 58, 43, 0.08);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(180deg, rgba(255, 250, 244, 0.9), rgba(255, 245, 236, 0.82));
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+}
+
+.heroCopy {
+  padding: clamp(1.8rem, 4vw, 3.4rem);
+}
+
+.heroCopy h1 {
+  font-size: clamp(2.8rem, 6vw, 5.8rem);
+  letter-spacing: -0.05em;
+  max-width: 12ch;
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--accent-strong);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.77rem;
+  font-weight: 700;
+}
+
+.description {
+  margin-top: 1rem;
+  max-width: 62ch;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.heroStats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.4rem;
+}
+
+.heroStats span,
+.planMeta span {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.5rem 0.9rem;
+  background: rgba(91, 110, 59, 0.1);
+  color: #374325;
+  font-size: 0.92rem;
+}
+
+.heroPanel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.8rem;
+  background: linear-gradient(180deg, rgba(86, 102, 54, 0.95), rgba(47, 60, 31, 0.94));
+  color: #f7f4eb;
+}
+
+.panelLabel {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.77rem;
+  font-weight: 700;
+  color: rgba(247, 244, 235, 0.75);
+}
+
+.heroPanel ul {
+  margin-top: 1rem;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.9rem;
+  line-height: 1.65;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(320px, 380px) minmax(0, 1fr);
+  gap: 1.4rem;
+}
+
+.leftRail,
+.resultsColumn {
+  display: grid;
+  gap: 1.2rem;
+  align-content: start;
+}
+
+.resultsColumn {
+  min-width: 0;
+}
+
+.summaryHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.4rem 1.6rem;
+  border-radius: var(--radius-lg);
+  background: var(--paper);
+  border: 1px solid rgba(84, 58, 43, 0.08);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.summaryHeader h2 {
+  font-size: clamp(1.7rem, 2vw, 2.2rem);
+}
+
+.planMeta {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.mealGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.bottomGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.loadingPanel,
+.errorBanner {
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.15rem;
+  font-weight: 600;
+}
+
+.loadingPanel {
+  background: rgba(219, 229, 211, 0.7);
+  border: 1px solid rgba(83, 101, 59, 0.18);
+}
+
+.errorBanner {
+  background: rgba(195, 67, 47, 0.1);
+  border: 1px solid rgba(195, 67, 47, 0.24);
+  color: #7a2416;
+}
+
+@media (max-width: 960px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .mealGrid,
+  .bottomGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .summaryHeader {
+    flex-direction: column;
+  }
+
+  .planMeta {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 1180px) {
+  .page {
+    padding-inline: 1rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .page {
+    padding: 1rem 0.8rem 2rem;
+  }
+
+  .heroCopy,
+  .heroPanel,
+  .summaryHeader {
+    padding: 1.25rem;
+  }
+
+  .heroCopy h1 {
+    font-size: clamp(2.2rem, 13vw, 3.3rem);
+  }
+
+  .heroStats,
+  .planMeta {
+    gap: 0.45rem;
+  }
+
+  .heroStats span,
+  .planMeta span {
+    width: 100%;
+    justify-content: center;
+  }
+}

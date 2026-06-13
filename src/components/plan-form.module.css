@@ -1,0 +1,208 @@
+.card {
+  border-radius: var(--radius-xl);
+  background: var(--paper);
+  border: 1px solid rgba(84, 58, 43, 0.08);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+  padding: 1.35rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.eyebrow {
+  color: var(--accent-strong);
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.header h2 {
+  font-size: 1.9rem;
+  margin-top: 0.2rem;
+}
+
+.helper {
+  max-width: 18ch;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.form {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.fieldHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6rem;
+  align-items: baseline;
+}
+
+.fieldHeader label,
+.fieldset legend {
+  font-weight: 700;
+}
+
+.fieldHeader span {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.fieldset {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 0.9rem;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.choiceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.choiceCard {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.choiceCard input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.choiceCard span {
+  display: block;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255, 252, 247, 0.92);
+  color: var(--foreground);
+  min-height: 100%;
+  transition:
+    border-color 140ms ease,
+    background 140ms ease,
+    transform 140ms ease,
+    box-shadow 140ms ease;
+}
+
+.choiceCard input:checked + span {
+  border-color: rgba(187, 90, 43, 0.55);
+  background: linear-gradient(180deg, rgba(255, 228, 211, 0.96), rgba(255, 242, 232, 0.92));
+  box-shadow: 0 16px 28px rgba(187, 90, 43, 0.12);
+  transform: translateY(-1px);
+}
+
+.preview {
+  border-radius: var(--radius-md);
+  background: rgba(219, 229, 211, 0.38);
+  padding: 0.9rem;
+  border: 1px dashed rgba(83, 101, 59, 0.22);
+}
+
+.previewLabel {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.55rem;
+}
+
+.previewChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.previewChip,
+.emptyPreview {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.4rem 0.75rem;
+  background: rgba(255, 250, 244, 0.8);
+  font-size: 0.9rem;
+}
+
+.emptyPreview {
+  color: var(--muted);
+}
+
+.submitButton {
+  border: none;
+  border-radius: 16px;
+  padding: 1rem 1.1rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #fff7f2;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 18px 32px rgba(142, 62, 25, 0.22);
+}
+
+.submitButton:disabled {
+  opacity: 0.72;
+  cursor: wait;
+}
+
+.error {
+  color: #8b2f1e;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 760px) {
+  .grid,
+  .choiceGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    flex-direction: column;
+  }
+
+  .helper {
+    max-width: none;
+  }
+
+  .fieldHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 1040px) {
+  .choiceGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .card {
+    padding: 1rem;
+  }
+
+  .fieldset {
+    padding: 0.8rem;
+  }
+}
